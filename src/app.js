@@ -7,7 +7,8 @@ const S = require('./lib/settings');
 const { limiter } = require('./lib/util');
 
 const app = express();
-if (process.env.TRUST_PROXY) app.set('trust proxy', process.env.TRUST_PROXY === 'true' ? 1 : process.env.TRUST_PROXY);
+// Enable trust proxy by default for Vercel/proxies so express-rate-limit detects client IPs safely
+app.set('trust proxy', 1);
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 app.use(cors({ origin: (o, cb) => cb(null, cfg.isAllowedOrigin(o)), credentials: true }));
 // raw body webhook signature verify ke liye chahiye
