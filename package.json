@@ -1,0 +1,29 @@
+{
+  "name": "footwear-sos-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "NODE_ENV=test RUN_SCHEDULER=false node --test --test-concurrency=1 test/e2e.test.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1162.0",
+    "@aws-sdk/s3-request-presigner": "^3.1162.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.0",
+    "zod": "^4.6.7"
+  },
+  "optionalDependencies": {
+    "mongodb-memory-server": "^10.1.2"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
